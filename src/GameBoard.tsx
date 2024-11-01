@@ -6,6 +6,9 @@ import burberry from './images/burberry.png';
 import polo from './images/polo.png';
 import valentino from './images/valentino.png';
 import versace from './images/versace.png';
+import  {toast} from 'react-toastify';
+
+
 
 const GameBoard: React.FC = () => {
     const [cards, setCards] = useState<{ src: string }[]>([]);
@@ -44,8 +47,15 @@ const GameBoard: React.FC = () => {
                 setMatchedCards([...matchedCards, ...flippedCards, index]);
             }
             setTimeout(() => setFlippedCards([]), 1000);
-            setMoves(moves + 1);
 
+            setMoves((prevMoves)=> {
+                const newMoves = prevMoves +1;
+                if (newMoves > 10) {
+                    toast.error('Вы проиграли! Начните заново.');
+                    initializeGame();
+                }
+                return newMoves;
+            })
         }
     };
 

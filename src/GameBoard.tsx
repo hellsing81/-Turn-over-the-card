@@ -45,13 +45,21 @@ const GameBoard: React.FC = () => {
         if (flippedCards.length === 1) {
             if (cards[flippedCards[0]].src === cards[index].src) {
                 setMatchedCards([...matchedCards, ...flippedCards, index]);
+                if (matchedCards.length + 2 === cards.length) {
+                    toast.success('Вы выиграли! Поздравляю!', {
+                        className: 'toast-large',
+                    });
+                    initializeGame();
+                }
             }
             setTimeout(() => setFlippedCards([]), 1000);
 
             setMoves((prevMoves)=> {
                 const newMoves = prevMoves +1;
                 if (newMoves > 10) {
-                    toast.error('Вы проиграли! Начните заново.');
+                    toast.error('Вы проиграли! Начните заново.', {
+                        className: 'toast-large',
+                    });
                     initializeGame();
                 }
                 return newMoves;

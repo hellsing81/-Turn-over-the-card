@@ -22,3 +22,9 @@ code {
   background-size: cover;
   background-position: center;
 }
+.toast-large {
+  font-size: 1.5rem; 
+  padding: 20px; 
+  width: 400px; 
+  text-align: center;
+}

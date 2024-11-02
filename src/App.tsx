@@ -7,7 +7,17 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-image">
       <GameBoard />
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

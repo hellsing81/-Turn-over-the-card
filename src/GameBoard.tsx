@@ -59,7 +59,7 @@ const GameBoard: React.FC = () => {
                 if (newMoves > 10) {
                     toast.error('Вы проиграли! Начните заново.', {
                         className: 'toast-large',
-                    });
+                    }); 
                     initializeGame();
                 }
                 return newMoves;
